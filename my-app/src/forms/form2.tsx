@@ -5,6 +5,8 @@ import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
+
+
 const validationSchema = yup.object({
   email: yup
     .string()
@@ -19,8 +21,8 @@ const validationSchema = yup.object({
 const WithMaterialUI = () => {
   const formik = useFormik({
     initialValues: {
-      email: 'foobar@example.com',
-      password: 'foobar',
+      email: "",
+      password: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -28,9 +30,11 @@ const WithMaterialUI = () => {
     },
   });
 
+
+  console.log(formik);
   return (
     <div>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} style={{padding:"20px"}}>
         <TextField
           fullWidth
           id="email"
